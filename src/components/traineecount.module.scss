@@ -1,0 +1,14 @@
+@use "../styles/globals.scss" as *;
+.count {
+  padding: 2rem;
+  width: 8rem;
+  margin-top: 2rem;
+  background-color: white;
+  border-radius: 12px;
+  &_trainee {
+    color: $blue-500;
+  }
+  &_title {
+    color: $primary-blue;
+  }
+}

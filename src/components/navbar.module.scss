@@ -1,0 +1,26 @@
+@use "../styles/globals.scss" as *;
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+  height: 78px;
+  background-color: $box-white-color;
+
+  .name {
+    color: $primary-blue;
+    transition: font-size 0.3s ease-in-out;
+    cursor: pointer;
+  }
+  .name:hover {
+    font-size: 2rem;
+    color: $blue-500;
+  }
+
+  .logout {
+    color: $primary-blue;
+    font-size: 24px;
+    text-decoration: none;
+  }
+}

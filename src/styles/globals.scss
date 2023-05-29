@@ -1,0 +1,19 @@
+@forward "./scss/colors";
+@forward "./scss/reset.scss";
+@forward "./scss/boilerplate.scss";
+
+@use "./scss/colors.scss" as *;
+
+@font-face {
+  font-family: ProductSans;
+  src: url("../fonts/Product\ Sans\ Regular.ttf");
+}
+
+body,
+button,
+input {
+  font-family: "ProductSans";
+}
+body {
+  background-image: $blue-gradient;
+}

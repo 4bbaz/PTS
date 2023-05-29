@@ -1,0 +1,14 @@
+@use "./styles/globals.scss" as *;
+
+.main_content {
+  margin: 0 5rem;
+  height: 100vh;
+}
+
+.main_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+

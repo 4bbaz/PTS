@@ -1,0 +1,75 @@
+@use "../styles/globals.scss" as *;
+
+.table {
+  margin-top: 3rem;
+  text-align: center;
+  &_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+    height: 80px;
+    background-color: white;
+    font-size: large;
+    color: $primary-blue;
+    border-radius: 12px 12px 0 0;
+    li {
+      width: 200px;
+    }
+  }
+  &_content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+    height: 80px;
+    background-color: $box-white-color;
+    font-size: large;
+    color: $primary-blue;
+
+    &:hover {
+      background-color: $box-border-color;
+    }
+
+    li {
+      flex-basis: 20%;
+    }
+    .mange {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+
+      .icon {
+        display: flex;
+        justify-content: space-between;
+        width: 35px;
+        height: 35px;
+        background-size: cover;
+        transition: 0.3s ease-in-out;
+      }
+
+      &_view {
+        background-image: url("../assets/view.svg");
+
+        &:hover {
+          background-image: url("../assets/viewHover.svg");
+        }
+      }
+
+      &_edit {
+        background-image: url("../assets/edit.svg");
+
+        &:hover {
+          background-image: url("../assets/EditHover.svg");
+        }
+      }
+      &_delete {
+        background-image: url("../assets/delete.svg");
+
+        &:hover {
+          background-image: url("../assets/DeleteHover.svg");
+        }
+      }
+    }
+  }
+}

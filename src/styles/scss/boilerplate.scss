@@ -1,0 +1,16 @@
+@use "./function.scss" as u;
+
+h1 {
+  font-size: u.rem(60);
+  font-weight: bold;
+}
+
+h2 {
+  font-size: u.rem(48);
+  font-weight: bold;
+}
+
+h3 {
+  font-size: u.rem(30);
+  font-weight: bold;
+}

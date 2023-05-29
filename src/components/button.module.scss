@@ -1,0 +1,27 @@
+@use "../styles/globals.scss" as *;
+
+.btn {
+  display: flex;
+  text-align: center;
+  margin-top: 1rem;
+  button {
+    background-color: $primary-blue;
+    padding: 4px, 28px;
+    
+    height: 48px;
+    font-size: 20px;
+    border: none;
+    border-radius: 8px;
+    color: $blue-100;
+    cursor: pointer;
+  }
+  .normal{
+    width: 104px;
+  }
+  .large{
+    width: 150px;
+  }
+  button:hover {
+    background-color: $blue-500;
+  }
+}
