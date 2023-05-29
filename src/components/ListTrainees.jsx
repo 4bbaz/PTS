@@ -1,8 +1,5 @@
 import Avatar from "./Avatar";
 import style from "./listtrainees.module.scss";
-import viewSvg from "../assets/view.svg";
-import editSvg from "../assets/edit.svg";
-import deleteSvg from "../assets/delete.svg";
 import PropTypes from "prop-types";
 
 function ListTrainees({ trainees }) {

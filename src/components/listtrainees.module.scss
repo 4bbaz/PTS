@@ -26,6 +26,7 @@
     background-color: $box-white-color;
     font-size: large;
     color: $primary-blue;
+    transition: 0.3s ease-in-out;
 
     &:hover {
       background-color: $box-border-color;
