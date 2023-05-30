@@ -1,7 +1,7 @@
 @forward "./scss/colors";
 @forward "./scss/reset.scss";
 @forward "./scss/boilerplate.scss";
-
+@forward "./scss/function.scss";
 @use "./scss/colors.scss" as *;
 
 @font-face {

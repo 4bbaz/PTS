@@ -1,0 +1,17 @@
+.gird {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  max-width: 800px;
+  .item3 {
+    grid-column: span 2;
+    align-items: center;
+    justify-content: center;
+    .file_upload {
+      display: inline-block;
+    }
+  }
+  .item4 {
+    grid-column: span 2;
+    margin-left: 280px;
+  }
+}

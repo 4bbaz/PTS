@@ -1,20 +1,27 @@
 @use "../styles/globals.scss" as *;
+
 .input_content {
   margin-top: 1rem;
-  .label {
+  .label_name {
     // margin-right: 15rem;
     font-size: 18px;
     display: block;
     margin-bottom: 0.5rem;
     color: $primary-blue;
   }
-  .input {
+  .label_input {
+    display: inline-block;
     border-radius: 12px;
     border-style: none;
-    outline: none;
-    width: rem(320);
+    width: rem(720);
     height: rem(50);
     font-size: 1.5em;
+    background-image: url("../assets/CameraOutline.svg");
+    background-repeat: no-repeat;
+    background-position: center;
     background-color: white;
+  }
+  .inputfile {
+    opacity: 0;
   }
 }
