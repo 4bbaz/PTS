@@ -4,6 +4,7 @@ import { DataOftrainees } from "../data/Trainees";
 import TraineeCount from "../components/TraineeCount";
 import Multiform from "./Multiform";
 import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 function Dashboard() {
   const [multiform, setMultiform] = useState(false);
@@ -25,7 +26,15 @@ function Dashboard() {
         </>
       )}
 
-      {multiform && <Multiform onClose={handleCloseMutiform} />}
+      {multiform && (
+        <motion.div
+          initial={{ scale: 0 }}
+          animate={{ scale: 1 }}
+          exit={{ scale: 0 }}
+        >
+          <Multiform onClose={handleCloseMutiform} />
+        </motion.div>
+      )}
     </div>
   );
 }
