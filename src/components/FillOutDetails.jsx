@@ -2,10 +2,14 @@ import Button from "./Button";
 import Input from "./Input";
 import InputFile from "./InputFile";
 import style from "./filloutdetails.module.scss";
+import PropsTypes from "prop-types";
 
-function FillOutDetails() {
+function FillOutDetails({ onNextStep }) {
   return (
     <div className={style.gird}>
+      <div className={style.header}>
+        <h3>Fill out Trainee Details</h3>
+      </div>
       <div className={style.item1}>
         <Input label="First Name" type="text" />
         <Input label="Email" type="email" />
@@ -24,10 +28,14 @@ function FillOutDetails() {
         <InputFile />
       </div>
       <div className={style.item4}>
-        <Button name="Next" size="large" />
+        <Button name="Next" size="large" click={onNextStep} />
       </div>
     </div>
   );
 }
+
+FillOutDetails.propTypes = {
+  onNextStep: PropsTypes.func.isRequired,
+};
 
 export default FillOutDetails;

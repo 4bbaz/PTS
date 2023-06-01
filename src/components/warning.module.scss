@@ -1,0 +1,18 @@
+@use "../styles/globals.scss" as *;
+.warning_box {
+  //   justify-content: center;
+  //   align-items: center;
+  text-align: center;
+  border: 3px solid $box-border-color;
+  padding: 2rem 5rem;
+  border-radius: 18px;
+  color: $primary-blue;
+  background-color: $blue-300;
+
+  .btns {
+    padding: 2rem;
+    display: flex;
+    gap: 3rem;
+    justify-content: center;
+  }
+}

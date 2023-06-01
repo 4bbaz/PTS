@@ -1,7 +1,17 @@
+@use "../styles/globals.scss" as *;
 .gird {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  column-gap: 2rem;
   max-width: 800px;
+  .header {
+    text-align: center;
+    grid-column: span 2;
+    color: $primary-blue;
+  }
+  .item2 {
+    align-items: end;
+  }
   .item3 {
     grid-column: span 2;
     align-items: center;
@@ -12,6 +22,6 @@
   }
   .item4 {
     grid-column: span 2;
-    margin-left: 280px;
+    margin: 0 auto;
   }
 }

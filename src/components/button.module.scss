@@ -3,22 +3,22 @@
 .btn {
   display: flex;
   text-align: center;
-  margin-top: 1rem;
+  margin-top: 0.6rem;
   button {
     background-color: $primary-blue;
     padding: 4px, 28px;
-    
+
     height: 48px;
-    font-size: 20px;
+    font-size: 18px;
     border: none;
     border-radius: 8px;
     color: $blue-100;
     cursor: pointer;
   }
-  .normal{
+  .normal {
     width: 104px;
   }
-  .large{
+  .large {
     width: 150px;
   }
   button:hover {

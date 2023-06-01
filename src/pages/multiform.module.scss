@@ -1,0 +1,50 @@
+@use "../styles/globals.scss" as *;
+
+.multiform_content {
+  display: grid;
+  place-content: center;
+  .mulitfrom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $box-color;
+    border-radius: 12px;
+    border: 4px solid $box-border-color;
+    padding: 2rem 0;
+    width: rem(800);
+    position: relative;
+    transition: 0.3s ease-in-out;
+    .transition {
+      // Common styles for transitions
+      transition-property: transform;
+      transition-duration: 0.3s;
+      transition-timing-function: ease-in-out;
+
+      &.transition_1 {
+        // Styles for transition to form 1
+        transform: translateX(0%);
+      }
+
+      &.transition_2 {
+        // Styles for transition to form 2
+        transform: translateX(-100%);
+      }
+    }
+  }
+  .closebutton {
+    cursor: pointer;
+    position: absolute;
+    top: 1%;
+    left: 95%;
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    background-size: cover;
+    background-image: url("../assets/XCircleOutlineHover.svg");
+    transition: 0.2s ease-in-out;
+
+    &:hover {
+      background-image: url("../assets/XCircleOutline.svg");
+    }
+  }
+}
