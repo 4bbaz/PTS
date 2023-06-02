@@ -1,13 +1,14 @@
 @use "../styles/globals.scss" as *;
 .input_content {
-  margin-top: 0.6rem;
+  margin-top: 0.5rem;
+
   .label {
-    // margin-right: 15rem;
     font-size: 16px;
     display: block;
     margin-bottom: 0.5rem;
     color: $primary-blue;
   }
+
   .input {
     border-radius: 8px;
     border-style: none;
@@ -16,5 +17,10 @@
     height: rem(40);
     font-size: 1em;
     background-color: white;
+    box-sizing: border-box;
+
+    &:focus {
+      border: 4px solid $box-color;
+    }
   }
 }

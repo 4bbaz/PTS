@@ -9,7 +9,7 @@ function ListTrainees({ trainees }) {
       <li>
         <Avatar photo={trainee.photo} alt={trainee.name} />
       </li>
-      <li>{trainee.name}</li>
+      <li>{trainee.firstName + trainee.lastName}</li>
       <li>{trainee.degree}</li>
       <li>
         <div className={style.mange}>

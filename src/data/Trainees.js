@@ -1,21 +1,23 @@
 export const DataOftrainees = [
     {
         id: 1,
-        name: "Althaf",
+        firstName: "Althaf",
+        lastName: "Hassan",
         degree: "B.sc",
-        photo: "../../public/images/2.png"
-    },
-    {
-        id: 2,
-        name: "Abhay",
-        degree: "B.com",
-        photo: "../../public/images/1.png"
-    },
-    {
-        id: 3,
-        name: "Steve",
-        degree: "BFA",
-        photo: "../../public/images/3.png"
-    }
+        email: "Althaf@gmail.com",
+        phoneNum: "3241234",
+        typeOfD: "Deaf",
+        place: "Malapuram",
+        parentEmail: "hassan@gmail.com",
+        parentPhone: "6543214",
+        teacherEmail: "Teacheraa@gmail.com",
+        photo: "/images/2.png",
+        course: "computer",
+        assignmentM: "65",
+        demoM: "75",
+        mockInterview: "99"
 
+    },
 ];
+
+
