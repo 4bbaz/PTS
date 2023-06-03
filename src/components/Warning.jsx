@@ -14,6 +14,5 @@ export default function Warning({ onBackEdit }) {
 }
 
 Warning.propTypes = {
-  onSave: PropTypes.func.isRequired,
   onBackEdit: PropTypes.func.isRequired,
 };
