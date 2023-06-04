@@ -3,10 +3,11 @@
   margin-top: 0.5rem;
 
   .label {
-    font-size: 16px;
+    font-size: 18px;
     display: block;
     margin-bottom: 0.5rem;
     color: $primary-blue;
+    // font-weight: 600;
   }
 
   .input {
@@ -15,15 +16,19 @@
     outline: none;
     width: rem(320);
     height: rem(40);
-    font-size: 1em;
+    font-size: 18px;
     background-color: white;
     box-sizing: border-box;
+    
 
     &:focus {
       border: 4px solid $box-color;
     }
   }
   .error {
-    color: rgb(216, 6, 6);
+    color: rgb(177, 4, 4);
+   
+    
+    font-weight: 600;
   }
 }

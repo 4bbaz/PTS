@@ -1,16 +1,22 @@
-import { useState } from "react";
 import Avatar from "./Avatar";
 import style from "./listtrainees.module.scss";
 import PropTypes from "prop-types";
 import TraineeDetails from "../pages/TraineeDetails";
+import { useNavigate } from "react-router-dom";
 
 function ListTrainees({ trainees }) {
-  const [viewTrainee, setViewTrainee] = useState(false);
+  const navigateTo = useNavigate();
+
   const handleViewTrainee = () => {
-    setViewTrainee(true);
+    navigateTo("/trainee");
   };
+
   const listTrainees = trainees.map((trainee) => (
-    <ul onClick={handleViewTrainee} className={style.table_content} key={trainee.id}>
+    <ul
+      onClick={handleViewTrainee}
+      className={style.table_content}
+      key={trainee.id}
+    >
       <li>{trainee.id}</li>
       <li>
         <Avatar photo={trainee.photo} alt={trainee.name} />
@@ -38,19 +44,16 @@ function ListTrainees({ trainees }) {
 
   return (
     <>
-      {!viewTrainee && (
-        <div className={style.table}>
-          <ul className={style.table_header}>
-            <li>No</li>
-            <li>Photo</li>
-            <li>Name</li>
-            <li>Degree</li>
-            <li>View & Edit</li>
-          </ul>
-          {listTrainees}
-        </div>
-      )}
-      {viewTrainee && <TraineeDetails />}
+      <div className={style.table}>
+        <ul className={style.table_header}>
+          <li>No</li>
+          <li>Photo</li>
+          <li>Name</li>
+          <li>Degree</li>
+          <li>View & Edit</li>
+        </ul>
+        {listTrainees}
+      </div>
     </>
   );
 }

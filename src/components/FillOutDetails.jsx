@@ -1,9 +1,11 @@
+import { motion } from "framer-motion";
 import Button from "./Button";
 import Input from "./Input";
 import Uploadphoto from "./Uploadphoto";
 import style from "./filloutdetails.module.scss";
 import PropTypes from "prop-types";
 import { useState } from "react";
+
 function FillOutDetails({ onNextStep, formData }) {
   const [firstName, setFirstName] = useState(formData.firstName || "");
   const [lastName, setLastName] = useState(formData.lastName || "");
@@ -123,93 +125,101 @@ function FillOutDetails({ onNextStep, formData }) {
   };
 
   return (
-    <div className={style.gird}>
-      <div className={style.header}>
-        <h3>Fill out Trainee Details</h3>
+    <motion.div
+     
+      initial={{ opacity: 0, x: 100 }}
+      animate={{ opacity: 1, x: 0 }}
+      exit={{ opacity: 0, x: -100 }}
+      transition={{ duration: 0.3 }}
+    >
+      <div className={style.gird}>
+        <div className={style.header}>
+          <h3>Fill out Trainee Details</h3>
+        </div>
+        <div className={style.item1}>
+          <Input
+            label="First Name"
+            type="text"
+            value={firstName}
+            onChange={setFirstName}
+            error={formErrors.firstName}
+          />
+          <Input
+            label="Email"
+            type="email"
+            value={email}
+            onChange={setEmail}
+            error={formErrors.email}
+          />
+          <Input
+            label="Degree"
+            type="select"
+            select="degree"
+            value={degree}
+            onChange={setDegree}
+            error={formErrors.degree}
+          />
+          <Input
+            label="Place"
+            type="text"
+            value={place}
+            onChange={setPlace}
+            error={formErrors.place}
+          />
+          <Input
+            label="Parent Phone Number"
+            type="text"
+            value={parentPhoneNum}
+            onChange={setParentPhoneNum}
+            error={formErrors.parentPhoneNum}
+          />
+        </div>
+        <div className={style.item2}>
+          <Input
+            label="Last Name"
+            type="text"
+            value={lastName}
+            onChange={setLastName}
+            error={formErrors.lastName}
+          />
+          <Input
+            label="Phone Number"
+            type="text"
+            value={phoneNumber}
+            onChange={setPhoneNumber}
+            error={formErrors.phoneNumber}
+          />
+          <Input
+            label="Type of Disability"
+            type="select"
+            select="disability"
+            value={disabilityType}
+            onChange={setDisabilityType}
+            error={formErrors.disabilityType}
+          />
+          <Input
+            label="Parent Email ID"
+            type="text"
+            value={parentEmail}
+            onChange={setParentEmail}
+            error={formErrors.parentEmail}
+          />
+          <Input
+            label="Teacher Email ID"
+            type="text"
+            value={teacherEmail}
+            onChange={setTeacherEmail}
+            error={formErrors.teacherEmail}
+          />
+        </div>
+        <div className={style.item3}>
+          <Uploadphoto onUpload={setPhoto} error={formErrors.photo} />
+        </div>
+        <div className={style.item4}>
+          <Button name="Next" size="large" click={handleNext} />
+        </div>
       </div>
-      <div className={style.item1}>
-        <Input
-          label="First Name"
-          type="text"
-          value={firstName}
-          onChange={setFirstName}
-          error={formErrors.firstName}
-        />
-        <Input
-          label="Email"
-          type="email"
-          value={email}
-          onChange={setEmail}
-          error={formErrors.email}
-        />
-        <Input
-          label="Degree"
-          type="select"
-          select="degree"
-          value={degree}
-          onChange={setDegree}
-          error={formErrors.degree}
-        />
-        <Input
-          label="Place"
-          type="text"
-          value={place}
-          onChange={setPlace}
-          error={formErrors.place}
-        />
-        <Input
-          label="Parent Phone Number"
-          type="text"
-          value={parentPhoneNum}
-          onChange={setParentPhoneNum}
-          error={formErrors.parentPhoneNum}
-        />
-      </div>
-      <div className={style.item2}>
-        <Input
-          label="Last Name"
-          type="text"
-          value={lastName}
-          onChange={setLastName}
-          error={formErrors.lastName}
-        />
-        <Input
-          label="Phone Number"
-          type="text"
-          value={phoneNumber}
-          onChange={setPhoneNumber}
-          error={formErrors.phoneNumber}
-        />
-        <Input
-          label="Type of Disability"
-          type="select"
-          select="disability"
-          value={disabilityType}
-          onChange={setDisabilityType}
-          error={formErrors.disabilityType}
-        />
-        <Input
-          label="Parent Email ID"
-          type="text"
-          value={parentEmail}
-          onChange={setParentEmail}
-          error={formErrors.parentEmail}
-        />
-        <Input
-          label="Teacher Email ID"
-          type="text"
-          value={teacherEmail}
-          onChange={setTeacherEmail}
-          error={formErrors.teacherEmail}
-        />
-      </div>
-      <div className={style.item3}>
-        <Uploadphoto onUpload={setPhoto} error={formErrors.photo} />
-      </div>
-      <div className={style.item4}>
-        <Button name="Next" size="large" click={handleNext} />
-      </div>
-    </div>
+    </motion.div>
   );
 }
 

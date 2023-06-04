@@ -9,6 +9,9 @@
   background-color: $box-white-color;
   margin-bottom: 3rem;
 
+  .link {
+    text-decoration: none;
+  }
   .name {
     color: $primary-blue;
     transition: font-size 0.3s ease-in-out;

@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import Button from "./Button";
 import Input from "./Input";
 import style from "./filloutcoursedetails.module.scss";
@@ -64,54 +65,67 @@ export default function FilloutCourseDetails({
     return validationErrors;
   };
   return (
-    <div className={style.grid}>
-      <h3 className={style.header}>Fill Out Course Details</h3>
-      <div className={style.item1}>
-        <Input label="Course" type="select" select="course" value={course} onChange={setCourse} />
-        <Input
-          label="Assignment Mark"
-          type="text"
-          value={assignmentMark}
-          onChange={setAssignmentMark}
-          error={formErrors.assignmentMark}
-        />
-        <Input
-          label="Demo Mark"
-          type="text"
-          value={demoMark}
-          onChange={setDemoMark}
-          error={formErrors.demoMark}
-        />
-        <Input
-          label="Mock Interview Mark"
-          type="text"
-          value={mockInterviewMark}
-          onChange={setMockInterviewMark}
-          error={formErrors.mockInterviewMark}
-        />
+    <motion.div
+      initial={{ opacity: 0, x: 100 }}
+      animate={{ opacity: 1, x: 0 }}
+      exit={{ opacity: 0, x: -100 }}
+      transition={{ duration: 0.3 }}
+    >
+      <div className={style.grid}>
+        <h3 className={style.header}>Fill Out Course Details</h3>
+        <div className={style.item1}>
+          <Input
+            label="Course"
+            type="select"
+            select="course"
+            value={course}
+            onChange={setCourse}
+          />
+          <Input
+            label="Assignment Mark"
+            type="text"
+            value={assignmentMark}
+            onChange={setAssignmentMark}
+            error={formErrors.assignmentMark}
+          />
+          <Input
+            label="Demo Mark"
+            type="text"
+            value={demoMark}
+            onChange={setDemoMark}
+            error={formErrors.demoMark}
+          />
+          <Input
+            label="Mock Interview Mark"
+            type="text"
+            value={mockInterviewMark}
+            onChange={setMockInterviewMark}
+            error={formErrors.mockInterviewMark}
+          />
+        </div>
+        <div className={style.item2}>
+          <button onClick={onPreviousStep} className={style.button}>
+            <svg
+              className={style.backicon}
+              width="44"
+              height="44"
+              viewBox="0 0 44 44"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M25.6666 29.3333L18.3333 22L25.6666 14.6666"
+                stroke="#146C94"
+                strokeWidth="2" // Update attribute name here
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </button>
+          <Button name="save" size="normal" click={handleNext} />
+        </div>
       </div>
-      <div className={style.item2}>
-        <button onClick={onPreviousStep} className={style.button}>
-          <svg
-            className={style.backicon}
-            width="44"
-            height="44"
-            viewBox="0 0 44 44"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M25.6666 29.3333L18.3333 22L25.6666 14.6666"
-              stroke="#146C94"
-              strokeWidth="2" // Update attribute name here
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
-        </button>
-        <Button name="save" size="normal" click={handleNext} />
-      </div>
-    </div>
+    </motion.div>
   );
 }
 

@@ -1,8 +1,16 @@
 @use "./styles/globals.scss" as *;
 
+main {
+  height: 130vh;
+  
+}
 .main_content {
   margin: 0 15rem;
   height: 110vh;
+}
+.navbar {
+  width: 100%;
+  margin: 0;
 }
 
 .main_container {
@@ -11,4 +19,3 @@
   align-items: center;
   height: 100vh;
 }
-
