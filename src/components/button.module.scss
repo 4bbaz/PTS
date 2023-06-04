@@ -14,14 +14,17 @@
     border-radius: 8px;
     color: $blue-100;
     cursor: pointer;
+    &:hover {
+      background-color: $blue-500;
+    }
+    &:active {
+      background-color: $blue-300;
+    }
   }
   .normal {
     width: 104px;
   }
   .large {
     width: 150px;
-  }
-  button:hover {
-    background-color: $blue-500;
   }
 }

@@ -1,10 +1,16 @@
+import { useState } from "react";
 import Avatar from "./Avatar";
 import style from "./listtrainees.module.scss";
 import PropTypes from "prop-types";
+import TraineeDetails from "../pages/TraineeDetails";
 
 function ListTrainees({ trainees }) {
+  const [viewTrainee, setViewTrainee] = useState(false);
+  const handleViewTrainee = () => {
+    setViewTrainee(true);
+  };
   const listTrainees = trainees.map((trainee) => (
-    <ul className={style.table_content} key={trainee.id}>
+    <ul onClick={handleViewTrainee} className={style.table_content} key={trainee.id}>
       <li>{trainee.id}</li>
       <li>
         <Avatar photo={trainee.photo} alt={trainee.name} />
@@ -14,7 +20,10 @@ function ListTrainees({ trainees }) {
       <li>
         <div className={style.mange}>
           <a href="#">
-            <span className={`${style.mange_view} ${style.icon}`}></span>
+            <span
+              onClick={handleViewTrainee}
+              className={`${style.mange_view} ${style.icon}`}
+            ></span>
           </a>
           <a href="#">
             <span className={`${style.mange_edit} ${style.icon}`}></span>
@@ -28,16 +37,21 @@ function ListTrainees({ trainees }) {
   ));
 
   return (
-    <div className={style.table}>
-      <ul className={style.table_header}>
-        <li>No</li>
-        <li>Photo</li>
-        <li>Name</li>
-        <li>Degree</li>
-        <li>View & Edit</li>
-      </ul>
-      {listTrainees}
-    </div>
+    <>
+      {!viewTrainee && (
+        <div className={style.table}>
+          <ul className={style.table_header}>
+            <li>No</li>
+            <li>Photo</li>
+            <li>Name</li>
+            <li>Degree</li>
+            <li>View & Edit</li>
+          </ul>
+          {listTrainees}
+        </div>
+      )}
+      {viewTrainee && <TraineeDetails />}
+    </>
   );
 }
 

@@ -5,10 +5,12 @@ import TraineeCount from "../components/TraineeCount";
 import Multiform from "./Multiform";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import TraineeDetails from "./TraineeDetails";
+
 
 function Dashboard() {
   const [multiform, setMultiform] = useState(false);
-
+  
   const handleAddTrainee = () => {
     setMultiform(true);
   };
@@ -16,6 +18,8 @@ function Dashboard() {
   const handleCloseMutiform = () => {
     setMultiform(false);
   };
+
+  
   return (
     <div>
       {!multiform && (

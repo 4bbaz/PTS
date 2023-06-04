@@ -63,7 +63,6 @@ export default function Multiform({ onClose }) {
         )}
 
         {isFormCompleted && <Warning onBackEdit={handleBackEdit} />}
-
         <span onClick={onClose} className={style.closebutton}></span>
       </div>
     </form>
