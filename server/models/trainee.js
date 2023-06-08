@@ -12,8 +12,9 @@ const TraineeSchema = Schema({
     disabilityType: { type: String, required: true },
     parentEmail: { type: String, required: true },
     teacherEmail: { type: String, required: true },
-    photo: { type: String, required: true },
-})
+    photoPath: { type: String, required: true },
+    courseDetails: [{ type: Schema.Types.ObjectId, ref: "coursedetail" }]
+});
 
 const Trainee = mongoose.model("trainee", TraineeSchema);
 export default Trainee;

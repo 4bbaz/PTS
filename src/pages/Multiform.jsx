@@ -56,29 +56,29 @@ export default function Multiform() {
     //     animate={{ opacity: 1, y: 0 }}
     //     exit={{ opacity: 0, transition: { duration: 0.3 } }}
     //   >
-        <form
-          onSubmit={handleSaveTraineeDetails}
-          className={style.multiform_content}
-        >
-          <div className={style.mulitfrom}>
-            {activeForm === 1 && (
-              <FillOutDetails
-                formData={formData.traineeDetails}
-                onNextStep={handleNextStep}
-              />
-            )}
-            {activeForm === 2 && (
-              <FilloutCourseDetails
-                formData={formData.courseDetails}
-                onPreviousStep={handlePreviousStep}
-                onNextStep={handleNextStep}
-              />
-            )}
+    <form
+      onSubmit={handleSaveTraineeDetails}
+      className={style.multiform_content}
+    >
+      <div className={style.mulitfrom}>
+        {activeForm === 1 && (
+          <FillOutDetails
+            formData={formData.traineeDetails}
+            onNextStep={handleNextStep}
+          />
+        )}
+        {activeForm === 2 && (
+          <FilloutCourseDetails
+            formData={formData.courseDetails}
+            onPreviousStep={handlePreviousStep}
+            onNextStep={handleNextStep}
+          />
+        )}
 
-            {isFormCompleted && <Warning onBackEdit={handleBackEdit} />}
-            <span onClick={handleClose} className={style.closebutton}></span>
-          </div>
-        </form>
+        {isFormCompleted && <Warning onBackEdit={handleBackEdit} />}
+        <span onClick={handleClose} className={style.closebutton}></span>
+      </div>
+    </form>
     //   </motion.div>
     // </AnimatePresence>
   );

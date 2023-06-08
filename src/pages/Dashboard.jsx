@@ -10,10 +10,14 @@ function Dashboard() {
   const handleAddTrainee = () => {
     navigateTo("/addTrainee");
   };
+  const handleAddcourse = () => {
+    navigateTo("/addcourse");
+  };
 
   return (
     <div>
       <Button name="Add Trainee" size="large" click={handleAddTrainee} />
+      <Button name="Add course" size="large" click={handleAddcourse} />
       <TraineeCount count="3" />
       <ListTrainees trainees={DataOftrainees} />
     </div>

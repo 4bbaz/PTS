@@ -2,24 +2,16 @@ import { motion } from "framer-motion";
 import Button from "./Button";
 import Input from "./Input";
 import style from "./filloutcoursedetails.module.scss";
-import PropTypes from "prop-types";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
-export default function FilloutCourseDetails({
-  onPreviousStep,
-  onNextStep,
-  formData,
-}) {
-  const [course, setCourse] = useState(formData.course || "");
-  const [assignmentMark, setAssignmentMark] = useState(
-    formData.assignmentMark || ""
-  );
-  const [demoMark, setDemoMark] = useState(formData.demoMark || "");
-  const [mockInterviewMark, setMockInterviewMark] = useState(
-    formData.mockInterviewMark || ""
-  );
+export default function FilloutCourseDetails() {
+  const [course, setCourse] = useState("");
+  const [assignmentMark, setAssignmentMark] = useState("");
+  const [demoMark, setDemoMark] = useState("");
+  const [mockInterviewMark, setMockInterviewMark] = useState("");
 
-  const handleNext = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     const validationErrors = validateForm();
     setFormErrors(validationErrors);
@@ -30,9 +22,6 @@ export default function FilloutCourseDetails({
         demoMark,
         mockInterviewMark,
       };
-      onNextStep({
-        courseDetails: courseDetails,
-      });
       console.log(courseDetails);
     }
   };
@@ -66,11 +55,16 @@ export default function FilloutCourseDetails({
   };
   return (
     <motion.div
+      className={style.addtrainee}
       initial={{ opacity: 0, x: 100 }}
       animate={{ opacity: 1, x: 0 }}
       exit={{ opacity: 0, x: -100 }}
       transition={{ duration: 0.3 }}
     >
+      <Link to="/dashboard">
+        {" "}
+        <span className={style.closebutton}></span>
+      </Link>
       <div className={style.grid}>
         <h3 className={style.header}>Fill Out Course Details</h3>
         <div className={style.item1}>
@@ -104,38 +98,9 @@ export default function FilloutCourseDetails({
           />
         </div>
         <div className={style.item2}>
-          <button onClick={onPreviousStep} className={style.button}>
-            <svg
-              className={style.backicon}
-              width="44"
-              height="44"
-              viewBox="0 0 44 44"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M25.6666 29.3333L18.3333 22L25.6666 14.6666"
-                stroke="#146C94"
-                strokeWidth="2" // Update attribute name here
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </button>
-          <Button name="save" size="normal" click={handleNext} />
+          <Button name="save" size="normal" click={handleSubmit} />
         </div>
       </div>
     </motion.div>
   );
 }
-
-FilloutCourseDetails.propTypes = {
-  onPreviousStep: PropTypes.func.isRequired,
-  onNextStep: PropTypes.func.isRequired,
-  formData: PropTypes.shape({
-    course: PropTypes.string,
-    assignmentMark: PropTypes.string,
-    demoMark: PropTypes.string,
-    mockInterviewMark: PropTypes.string,
-  }).isRequired,
-};

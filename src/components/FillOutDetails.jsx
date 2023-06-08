@@ -3,25 +3,21 @@ import Button from "./Button";
 import Input from "./Input";
 import Uploadphoto from "./Uploadphoto";
 import style from "./filloutdetails.module.scss";
-import PropTypes from "prop-types";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
-function FillOutDetails({ onNextStep, formData }) {
-  const [firstName, setFirstName] = useState(formData.firstName || "");
-  const [lastName, setLastName] = useState(formData.lastName || "");
-  const [email, setEmail] = useState(formData.email || "");
-  const [degree, setDegree] = useState(formData.degree || "");
-  const [place, setPlace] = useState(formData.place || "");
-  const [phoneNumber, setPhoneNumber] = useState(formData.phoneNumber || "");
-  const [parentPhoneNum, setParentPhoneNum] = useState(
-    formData.parentPhoneNum || ""
-  );
-  const [disabilityType, setDisabilityType] = useState(
-    formData.disabilityType || ""
-  );
-  const [parentEmail, setParentEmail] = useState(formData.parentEmail || "");
-  const [teacherEmail, setTeacherEmail] = useState(formData.teacherEmail || "");
-  const [photo, setPhoto] = useState(formData.photo || "");
+function FillOutDetails() {
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [degree, setDegree] = useState("");
+  const [place, setPlace] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [parentPhoneNum, setParentPhoneNum] = useState("");
+  const [disabilityType, setDisabilityType] = useState("");
+  const [parentEmail, setParentEmail] = useState("");
+  const [teacherEmail, setTeacherEmail] = useState("");
+  const [photo, setPhoto] = useState("");
 
   const [formErrors, setFormErrors] = useState({});
 
@@ -96,42 +92,75 @@ function FillOutDetails({ onNextStep, formData }) {
     return validationErrors;
   };
 
-  const handleNext = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
     const validationErrors = validateForm();
     setFormErrors(validationErrors);
     console.log("Form Errors:", validationErrors);
 
-    if (Object.keys(validationErrors).length === 0) {
-      const traineeDetails = {
-        firstName,
-        lastName,
-        email,
-        degree,
-        place,
-        phoneNumber,
-        parentPhoneNum,
-        disabilityType,
-        parentEmail,
-        teacherEmail,
-        photo,
-      };
+    try {
+      if (Object.keys(validationErrors).length === 0) {
+        const traineeDetails = {
+          firstName,
+          lastName,
+          email,
+          degree,
+          place,
+          phoneNumber,
+          parentPhoneNum,
+          disabilityType,
+          parentEmail,
+          teacherEmail,
+          photo,
+        };
+        // console.log("trainees", traineeDetails);
+      }
+      const formData = new FormData();
+      // formData.append("avatar", photo);
+      formData.append("firstName", firstName);
+      formData.append("lastName", lastName);
+      formData.append("email", email);
+      formData.append("degree", degree);
+      formData.append("place", place);
+      formData.append("phoneNumber", phoneNumber);
+      formData.append("parentPhoneNum", parentPhoneNum);
+      formData.append("disabilityType", disabilityType);
+      formData.append("parentEmail", parentEmail);
+      formData.append("teacherEmail", teacherEmail);
 
-      onNextStep({
-        traineeDetails,
-      });
+      console.log("Trainees: ", formData);
+
+      // const response = await axios.post(
+      //   "http://localhost:3000/api/addtrainee",
+      //   formData,
+      //   {
+      //     headers: {
+      //       "Content-Type": "multipart/form-data",
+      //     },
+      //   }
+      // );
+
+      console.log("Trainee added successfully");
+      // console.log("Response:", response.data);
+    } catch (error) {
+      console.log("Failed to add trainee:", error);
     }
   };
 
   return (
     <motion.div
-     
+      className={style.addtrainee}
       initial={{ opacity: 0, x: 100 }}
       animate={{ opacity: 1, x: 0 }}
       exit={{ opacity: 0, x: -100 }}
       transition={{ duration: 0.3 }}
     >
+      <Link to="/dashboard">
+        {" "}
+        <span className={style.closebutton}></span>
+      </Link>
+
       <div className={style.gird}>
         <div className={style.header}>
           <h3>Fill out Trainee Details</h3>
@@ -216,28 +245,11 @@ function FillOutDetails({ onNextStep, formData }) {
           <Uploadphoto onUpload={setPhoto} error={formErrors.photo} />
         </div>
         <div className={style.item4}>
-          <Button name="Next" size="large" click={handleNext} />
+          <Button name="Save" size="large" click={handleSubmit} />
         </div>
       </div>
     </motion.div>
   );
 }
-
-FillOutDetails.propTypes = {
-  onNextStep: PropTypes.func.isRequired,
-  formData: PropTypes.shape({
-    firstName: PropTypes.string,
-    lastName: PropTypes.string,
-    email: PropTypes.string,
-    degree: PropTypes.string,
-    place: PropTypes.string,
-    phoneNumber: PropTypes.string,
-    parentPhoneNum: PropTypes.string,
-    disabilityType: PropTypes.string,
-    parentEmail: PropTypes.string,
-    teacherEmail: PropTypes.string,
-    photo: PropTypes.string,
-  }),
-};
 
 export default FillOutDetails;
