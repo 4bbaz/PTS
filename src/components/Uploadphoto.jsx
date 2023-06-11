@@ -37,9 +37,10 @@ function Uploadphoto({ onUpload, error }) {
         onChange={handleUpload}
         className={style.inputfile}
         id="fileInput"
+        name="avatar"
         type="file"
         accept="image/*"
-        required
+        
       />
       {error && <p className={style.error}>{error}</p>}
       {/* {!error && <p className={style.error}>Please upload a photo</p>} */}

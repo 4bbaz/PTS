@@ -1,27 +1,40 @@
-import express from "express";
-import {
-    addTrainee,
-    // getAllTrainees,
-    // getTraineeById,
-    // updateTrainee,
-    // deleteTrainee,
-} from "../controllers/traineeController.js";
+import express from 'express';
+import multer from 'multer';
+import path from 'path';
+import { addTrainee, deleteTrainee, getAllTrainees, getTraineeById, getTraineeCourseDetails, updateTrainee } from '../controllers/traineeController.js';
+import { addCourseDetail, deleteCourseDetail, updateCourse } from '../controllers/courseController.js';
+import { getAdminById } from '../controllers/adminController.js';
 
 const router = express.Router();
 
-// Route for adding a new trainee
-router.post("/trainees", addTrainee);
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, './public/uploads');
+    },
+    filename: function (req, file, cb) {
+        cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
+    }
+});
+const upload = multer({ storage: storage });
 
-// Route for getting all trainees
-// router.get("/trainees", getAllTrainees);
+router.post('/addtrainee', upload.single('avatar'), addTrainee);
 
-// // Route for getting a specific trainee by ID
-// router.get("/trainees/:id", getTraineeById);
+router.get('/trainees', getAllTrainees);
 
-// // Route for updating a trainee
-// router.put("/trainees/:id", updateTrainee);
+router.get("/trainee/:id", getTraineeById);
 
-// // Route for deleting a trainee
-// router.delete("/trainees/:id", deleteTrainee);
+router.delete("/delete/:id", deleteTrainee);
+
+router.post("/addcourse/:id", addCourseDetail);
+
+router.put("/update/:id", upload.single('avatar'), updateTrainee);
+
+router.get("/course/:id", getTraineeCourseDetails);
+
+router.put("/update/course/:id", updateCourse);
+
+router.delete("/deletecourse/:id", deleteCourseDetail)
+
+router.get("/admin/:id", getAdminById);
 
 export default router;

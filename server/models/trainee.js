@@ -16,5 +16,11 @@ const TraineeSchema = Schema({
     courseDetails: [{ type: Schema.Types.ObjectId, ref: "coursedetail" }]
 });
 
+
+TraineeSchema.virtual("name").get(function () {
+    return `${this.firstName} ${this.lastName}`;
+});
+
+
 const Trainee = mongoose.model("trainee", TraineeSchema);
 export default Trainee;

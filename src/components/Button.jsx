@@ -18,7 +18,7 @@ function Button({ name, size, click, type }) {
 Button.propTypes = {
   name: PropTypes.string,
   size: PropTypes.string,
-  click: PropTypes.func.isRequired,
+  click: PropTypes.func,
   type: PropTypes.string,
 };
 

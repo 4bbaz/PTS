@@ -71,6 +71,13 @@
           background-image: url("../assets/DeleteHover.svg");
         }
       }
+      &_addcourse {
+        background-image: url("../assets/DocumentAddOutline.svg");
+
+        &:hover {
+          background-image: url("../assets/DocumentAddOutlineHover.svg");
+        }
+      }
     }
   }
 }
