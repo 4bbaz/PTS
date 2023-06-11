@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import style from "./filloutcoursedetails.module.scss";
 import { useState } from "react";
-import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import api from "../service/api";
 import Input from "../components/Input";
 import Button from "../components/Button";

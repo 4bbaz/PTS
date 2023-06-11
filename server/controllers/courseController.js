@@ -64,40 +64,6 @@ export const getCourse = async (req, res) => {
 
 
 
-export const updateCourse = async (req, res) => {
-    try {
-        const { id } = req.params;
-        const {
-            courseName,
-            assignmentMark,
-            demoMark,
-            mockInterviewMark
-        } = req.body;
-
-        const updatedCourse = await CourseDetail.findByIdAndUpdate(
-            id,
-            {
-                courseName,
-                assignmentMark,
-                demoMark,
-                mockInterviewMark
-            },
-            { new: true }
-        );
-
-        if (!updatedCourse) {
-            return res.status(404).json({ error: "Course not found" });
-        }
-
-        res.status(200).json(updatedCourse);
-    } catch (error) {
-        console.log("Failed to update course: ", error);
-        res.status(500).json({ error: "Failed to update course" });
-    }
-};
-
-
-
 export const deleteCourseDetail = async (req, res) => {
     try {
         const { id } = req.params;

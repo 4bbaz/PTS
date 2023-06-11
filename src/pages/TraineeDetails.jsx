@@ -110,8 +110,16 @@ export default function TraineeDetails() {
           <div className={style.courseD}>{listCourses}</div>
           <h3>Share this report</h3>
           <div className={style.social}>
-            <span className={style.whatsapp}></span>
-            <span className={style.gmail}></span>
+            <a href={`mailto:${trainee.parentEmail}`}>
+              <span className={style.gmail}></span>
+            </a>
+            <a
+              href={`https://wa.me/${trainee.phoneNumber}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span className={style.whatsapp}></span>
+            </a>
           </div>
         </div>
       </motion.div>

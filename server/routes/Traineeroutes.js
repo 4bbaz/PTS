@@ -2,7 +2,7 @@ import express from 'express';
 import multer from 'multer';
 import path from 'path';
 import { addTrainee, deleteTrainee, getAllTrainees, getTraineeById, getTraineeCourseDetails, updateTrainee } from '../controllers/traineeController.js';
-import { addCourseDetail, deleteCourseDetail, updateCourse } from '../controllers/courseController.js';
+import { addCourseDetail, deleteCourseDetail } from '../controllers/courseController.js';
 import { getAdminById } from '../controllers/adminController.js';
 
 const router = express.Router();
@@ -30,8 +30,6 @@ router.post("/addcourse/:id", addCourseDetail);
 router.put("/update/:id", upload.single('avatar'), updateTrainee);
 
 router.get("/course/:id", getTraineeCourseDetails);
-
-router.put("/update/course/:id", updateCourse);
 
 router.delete("/deletecourse/:id", deleteCourseDetail)
 
