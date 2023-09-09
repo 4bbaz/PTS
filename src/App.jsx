@@ -7,16 +7,22 @@ import TraineeDetails from "./pages/TraineeDetails";
 import FillOutDetails from "./pages/FillOutDetails";
 import FilloutCourseDetails from "./pages/FilloutCourseDetails";
 import NoFoundPage from "./pages/NoFoundPage";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
 
 function App() {
   const location = useLocation();
   return (
     <main>
-      {location.pathname !== "/" && <NavBar />}
+      {location.pathname !== "/" &&
+        location.pathname !== "/about" &&
+        location.pathname !== "/contact" && <NavBar />}
 
-      <div className="main_content ">
+      <div className=" ">
         <Routes>
           <Route path="/" element={<Login />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/addcourse/:id" element={<FilloutCourseDetails />} />
           <Route path="/viewtrainee/:id" element={<TraineeDetails />} />

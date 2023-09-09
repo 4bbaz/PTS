@@ -2,8 +2,9 @@ import { useEffect, useState } from "react";
 import Button from "../components/Button";
 import Input from "../components/Input";
 import style from "./login.module.scss";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import api from "../service/api";
+import styles from "../components/navbar.module.scss";
 
 export default function Login() {
   const [username, setUsername] = useState("");
@@ -33,31 +34,44 @@ export default function Login() {
     }
   };
   return (
-    <div className={style.login_content}>
-      <div className={style.title}>
-        <h1>Hello Trainer! </h1>
-        <h2>Welcome to Progress Tracker System</h2>
-      </div>
-      <div className={style.login}>
-        <Input
-          label="Username"
-          type="text"
-          value={username}
-          onChange={setUsername}
-        />
-        <Input
-          label="Password"
-          type="password"
-          value={password}
-          onChange={setPassword}
-        />
-        <div className={style.btn}>
-          <Button name="Login" size="normal" click={handleLogin} />
+    <>
+      <div className={styles.navbar}>
+        <h3 className={styles.name}>Progress Tracker System Adminstractor</h3>
+        <div className={styles.links}>
+          <Link to="/about" className={styles.logout}>
+            About
+          </Link>
+          <Link to="/contact" className={styles.logout}>
+            Contact
+          </Link>
         </div>
       </div>
-      {!valid && (
-        <p className={style.error}>password and username are invalid</p>
-      )}
-    </div>
+      <div className={style.login_content}>
+        <div className={style.title}>
+          <h1>Hello Trainer! </h1>
+          <h2>Welcome to Progress Tracker System</h2>
+        </div>
+        <div className={style.login}>
+          <Input
+            label="Username"
+            type="text"
+            value={username}
+            onChange={setUsername}
+          />
+          <Input
+            label="Password"
+            type="password"
+            value={password}
+            onChange={setPassword}
+          />
+          <div className={style.btn}>
+            <Button name="Login" size="normal" click={handleLogin} />
+          </div>
+        </div>
+        {!valid && (
+          <p className={style.error}>password and username are invalid</p>
+        )}
+      </div>
+    </>
   );
 }

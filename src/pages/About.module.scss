@@ -1,0 +1,22 @@
+@use "../styles/globals.scss" as *;
+.about_content {
+  display: grid;
+  place-items: center;
+
+  .details {
+    border: 8px solid $box-border-color;
+    padding: 1rem 3rem;
+    border-radius: 50px;
+    background-color: $box-color;
+    width: 50%;
+
+    .title {
+      text-align: center;
+      padding: 1rem;
+      color: $primary-blue;
+    }
+    p {
+      font-size: large;
+    }
+  }
+}

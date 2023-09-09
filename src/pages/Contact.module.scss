@@ -1,0 +1,56 @@
+@use "../styles/globals.scss" as *;
+.contact_content {
+  display: grid;
+  place-items: center;
+
+  .details {
+    border: 8px solid $box-border-color;
+    padding: 1rem 3rem;
+    border-radius: 50px;
+    background-color: $box-color;
+
+    .title {
+      text-align: center;
+      padding: 1rem;
+      color: $primary-blue;
+    }
+  }
+  p {
+    font-size: large;
+  }
+  .social {
+    display: flex;
+    gap: 0.5rem;
+    padding: 1.5rem 0;
+    padding-left: 3rem;
+   
+    span {
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 48px;
+      height: 48px;
+      background-color: $box-border-color;
+      border-radius: 50%;
+      &:hover {
+        background-color: $box-white-color;
+      }
+      &:active {
+        background-color: $primary-blue;
+      }
+    }
+    .whatsapp {
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-image: url("../assets/Whatsapp.svg");
+    }
+    .gmail {
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-image: url("../assets/Gmail.svg");
+    }
+  }
+}
